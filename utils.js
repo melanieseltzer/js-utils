@@ -5,3 +5,17 @@ export const renameFile = filename => {
 
   return `${baseName}-${Date.now()}.${ext}`.replace(/\s+/g, '-');
 }
+
+// Wait for process to exit before moving on to the next task
+// useful with Redux Saga/generators
+export function waitForChildProcessToComplete(process) {
+  return new Promise((resolve, reject) => {
+    process.on('exit', code => {
+      if (code === 0) {
+        resolve(undefined);
+      } else {
+        reject(new Error(code));
+      }
+    });
+  });
+}
