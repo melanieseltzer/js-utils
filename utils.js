@@ -53,8 +53,8 @@ export function bytesToSize(bytes) {
 /**
  * Recursively check if a multi-nested object contains x key
  * @param {Object} obj The object to check
- * @param {Object} key The first key in the object to check
- * @param {Object} rest The rest of the keys to check, if nested more than 1 level
+ * @param {String} key The first key in the object to check
+ * @param {Array.<String>} rest The rest of the keys to check, if nested more than 1 level
  * @returns {boolean} Return true if obj contains key, otherwise false
 */
 export function checkNestedObj(obj, key, ...rest) {
