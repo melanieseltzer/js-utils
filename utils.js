@@ -1,5 +1,8 @@
-// Takes in a filename, replaces spaces with dashes, and
-// returns a new name with Date.now() for timestamp
+/**
+ * Rename a filename, replacing spaces with dashes, and adding a timestamp
+ * @param {String} filename The original filename to rename
+ * @returns {String} The formatted filename
+*/
 export function renameFile(filename) {
   // Get the base name without the extension
   const baseName = filename
@@ -30,7 +33,11 @@ export function waitForChildProcessToComplete(process) {
   });
 }
 
-// A small function to format bytes into appropriate sizes
+/**
+ * A small function to format bytes into appropriate sizes
+ * @param {Number} bytes The number of bytes to format
+ * @returns {String} Formatted size
+*/
 export function bytesToSize(bytes) {
   const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
 
@@ -48,7 +55,6 @@ export function bytesToSize(bytes) {
   // toFixed(0) removes the decimal and rounds up
   return `(${(bytes / 1024 ** i).toFixed(0)} ${sizes[i]})`;
 }
-
 
 /**
  * Recursively check if a multi-nested object contains x key
