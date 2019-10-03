@@ -48,3 +48,18 @@ export function bytesToSize(bytes) {
   // toFixed(0) removes the decimal and rounds up
   return `(${(bytes / 1024 ** i).toFixed(0)} ${sizes[i]})`;
 }
+
+
+/**
+ * Recursively check if a multi-nested object contains x key
+ * @param {Object} obj The object to check
+ * @param {Object} key The first key in the object to check
+ * @param {Object} rest The rest of the keys to check, if nested more than 1 level
+ * @returns {boolean} Return true if obj contains key, otherwise false
+*/
+export function checkNestedObj(obj, key, ...rest) {
+  // eslint-disable-next-line
+  if (obj === undefined) return false
+  if (rest.length === 0 && obj.hasOwnProperty(key)) return true
+  return checkNestedObj(obj[key], ...rest)
+}
