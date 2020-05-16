@@ -64,8 +64,21 @@ export function bytesToSize(bytes) {
  * @returns {boolean} Return true if obj contains key, otherwise false
 */
 export function checkNestedObj(obj, key, ...rest) {
-  // eslint-disable-next-line
   if (obj === undefined) return false
   if (rest.length === 0 && obj.hasOwnProperty(key)) return true
   return checkNestedObj(obj[key], ...rest)
+}
+
+/**
+ * Transform a string into an appropriate url slug
+ * @param {String} str The string to transform
+*/
+export function slugify(str) {
+  return str
+    // replace forward slash and spaces with dash
+    .replace(/\/|\s+/g, '-')
+    // replace duplicate dashes with single dash
+    .replace(/[\s-]+/g, '-')
+    .toLowerCase()
+    .trim();
 }
