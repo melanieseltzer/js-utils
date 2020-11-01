@@ -87,6 +87,13 @@ export function slugify(str) {
  * Capitalize the first letter of a string
  * @param {String} str The string to capitalize
  */
-export function capitalizeFirstLetter(str: string) {
+export function capitalizeFirstLetter(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
+
+/**
+ * Wrap a number in a unit of measurement
+ * @param {Number} num The number to wrap
+ * @param {String} unit Optional - the unit of measurement, defaults to `px`
+ */
+export const withUnit = (num, unit = 'px') => `${num}${unit}`;
