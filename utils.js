@@ -82,3 +82,11 @@ export function slugify(str) {
     .toLowerCase()
     .trim();
 }
+
+/**
+ * Capitalize the first letter of a string
+ * @param {String} str The string to capitalize
+ */
+export function capitalizeFirstLetter(str: string) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
